@@ -8,6 +8,6 @@ const {
 /**
  * An http instance for making requests to the Chatbot Service
  */
-export const photosHttp = createHttpInstance({
+export const chatbotHttp = createHttpInstance({
   baseURL: `http://${HOST}:${PORT}/chatbot`,
 })

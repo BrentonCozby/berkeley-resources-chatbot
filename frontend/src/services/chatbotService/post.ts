@@ -1,15 +1,15 @@
 import { ChatbotSerializer } from '@/serializers/chatbot'
-import { photosHttp } from './base'
-import { ChatbotResult, Message } from '@root/../types/chatbot'
+import { chatbotHttp } from './base'
+import { ChatbotResult } from '@root/../types/chatbot'
 
 interface PostArgs {
-  messages: Message[];
+  prompt: string;
 }
 
 export async function post({
-  messages,
+  prompt,
 }: PostArgs) {
-  const { data: responseJson } = await photosHttp.post('/', { messages })
+  const { data: responseJson } = await chatbotHttp.post('/', { prompt })
 
   const response = ChatbotSerializer.deserialize('chatbot', responseJson)
 
